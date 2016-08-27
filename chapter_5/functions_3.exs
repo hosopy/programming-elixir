@@ -5,7 +5,7 @@ fizz_buzz = fn
   (_, _, c) -> c
 end
 
-fizz_buzz_wrapper = fn n -> fizz_buzz.(rem(n, 3), rem(n, 5), n) end
+fizz_buzz_wrapper = fn (n) -> fizz_buzz.(rem(n, 3), rem(n, 5), n) end
 
 IO.puts fizz_buzz_wrapper.(10)
 IO.puts fizz_buzz_wrapper.(11)
