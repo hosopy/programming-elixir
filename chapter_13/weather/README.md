@@ -1,7 +1,7 @@
 # Weather
 
-This application fetches weather data from http://w1.weather.gov/xml/current_obs/KDTO.xml
-and prints formatted content.
+This application fetches weather data at the location specified by a code.
+Available code can be found at http://w1.weather.gov/xml/current_obs/.
 
 ## Installation
 
