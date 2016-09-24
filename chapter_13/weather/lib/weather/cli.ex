@@ -7,6 +7,37 @@ defmodule Weather.CLI do
   """
 
   def main(argv) do
-    # TODO implement
+    argv
+    |> parse_args
+    |> process
+  end
+
+  @doc """
+  `argv` can be -h or --help, which returns :help.
+
+  Otherwise it is a location code.
+  Return a tuple of `{ code }`, or `:help` if help was given.
+  """
+  def parse_args(argv) do
+    parse = OptionParser.parse(argv, switches: [ help: :boolean],
+                                     aliases:  [ h:    :help])
+    case parse do
+      { [ help: true ], _, _ }
+        -> :help
+      { _, [ code ], _ }
+        -> { code }
+      _ -> :help
+    end
+  end
+
+  def process(:help) do
+    IO.puts """
+    usage: weather <code>
+    """
+    System.halt(0)
+  end
+
+  def process({code}) do
+    # TODO: implement
   end
 end
