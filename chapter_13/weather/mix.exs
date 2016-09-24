@@ -31,6 +31,7 @@ defmodule Weather.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
+      { :httpoison, "~> 0.8" },
       { :ex_doc, "~> 0.11" },
       { :earmark, ">= 0.0.0" }
     ]
