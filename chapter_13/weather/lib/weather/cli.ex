@@ -18,7 +18,7 @@ defmodule Weather.CLI do
   Otherwise it is a location code.
   Return a tuple of `{ code }`, or `:help` if help was given.
   """
-  def parse_args(argv) do
+  defp parse_args(argv) do
     parse = OptionParser.parse(argv, switches: [ help: :boolean],
                                      aliases:  [ h:    :help])
     case parse do
@@ -30,14 +30,15 @@ defmodule Weather.CLI do
     end
   end
 
-  def process(:help) do
+  defp process(:help) do
     IO.puts """
     usage: weather <code>
     """
     System.halt(0)
   end
 
-  def process({code}) do
-    # TODO: implement
+  defp process({code}) do
+    Weather.NationalWeatherService.fetch_current_obs(code)
+    |> IO.inspect
   end
 end

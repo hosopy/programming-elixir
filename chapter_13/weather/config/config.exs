@@ -28,3 +28,9 @@ use Mix.Config
 # here (which is why it is important to import them last).
 #
 #     import_config "#{Mix.env}.exs"
+
+config :weather, nws_url: "http://w1.weather.gov"
+config :weather, display_fields: ~w(location station_id observation_time weather
+                                    temperature_string relative_humidity
+                                    wind_string pressure_string)
+config :logger, compile_time_purge_level: :info
