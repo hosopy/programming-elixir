@@ -1,6 +1,7 @@
 # Weather
 
-**TODO: Add description**
+This application fetches weather data from http://w1.weather.gov/xml/current_obs/KDTO.xml
+and prints formatted content.
 
 ## Installation
 
@@ -17,4 +18,3 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
         def application do
           [applications: [:weather]]
         end
-
