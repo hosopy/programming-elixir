@@ -5,6 +5,8 @@ defmodule Weather.Mixfile do
     [app: :weather,
      escript: escript_config,
      version: "0.0.1",
+     name: "Weather",
+     source_url: "https://github.com/hosopy/programming-elixir/tree/master/chapter_13/weather",
      elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -28,7 +30,10 @@ defmodule Weather.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [
+      { :ex_doc, "~> 0.11" },
+      { :earmark, ">= 0.0.0" }
+    ]
   end
 
   defp escript_config do
