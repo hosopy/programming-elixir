@@ -43,17 +43,17 @@ defmodule Weather.NationalWeatherService do
     System.halt(2)
   end
 
-  def scan_response(body) do
+  defp scan_response(body) do
     body
     |> String.to_char_list
     |> :xmerl_scan.string
   end
 
-  def extract_nodes({xml, _}, node_names) do
+  defp extract_nodes({xml, _}, node_names) do
     Enum.into(node_names, %{}, &(extract_node(xml, &1)) )
   end
 
-  def extract_node(xml, node_name) do
+  defp extract_node(xml, node_name) do
     [element]  = :xmerl_xpath.string(String.to_char_list("/current_observation/#{node_name}"), xml)
     [text] = xmlElement(element, :content)
     value = xmlText(text, :value)
