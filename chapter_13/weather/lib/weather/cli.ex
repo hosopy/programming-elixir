@@ -39,6 +39,23 @@ defmodule Weather.CLI do
 
   defp process({code}) do
     Weather.NationalWeatherService.fetch_current_obs(code)
-    |> IO.inspect
+    |> print_map
+  end
+
+  defp print_map(map) do
+    with max_key_length = max_key_length(map)
+    do
+      map
+      |> Enum.map(fn {k, v} -> "#{String.ljust(Atom.to_string(k), max_key_length)} : #{v}" end)
+      |> Enum.join("\n")
+      |> IO.puts
+    end
+  end
+
+  defp max_key_length(map) do
+    map
+    |> Map.keys
+    |> Enum.map(fn (key) -> String.length(Atom.to_string(key)) end)
+    |> Enum.max
   end
 end
