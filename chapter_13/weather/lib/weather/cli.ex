@@ -18,7 +18,7 @@ defmodule Weather.CLI do
   Otherwise it is a location code.
   Return a tuple of `{ code }`, or `:help` if help was given.
   """
-  defp parse_args(argv) do
+  def parse_args(argv) do
     parse = OptionParser.parse(argv, switches: [ help: :boolean],
                                      aliases:  [ h:    :help])
     case parse do
